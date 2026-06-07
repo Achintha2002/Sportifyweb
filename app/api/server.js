@@ -32,9 +32,19 @@ app.use(limiter);
 
 // CORS configuration
 const corsOptions = {
-  origin: [
-    process.env.FRONTEND_URL || 'http://localhost:3001'
-  ],
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      process.env.FRONTEND_URL,
+      'http://localhost:3001',
+      'http://localhost:5173'
+    ];
+    // Allow any vercel preview URL or if no origin (like mobile apps/postman)
+    if (!origin || origin.includes('vercel.app') || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200
 };

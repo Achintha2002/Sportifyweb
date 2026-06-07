@@ -64,7 +64,7 @@ const authReducer = (state, action) => {
 };
 
 // Axios defaults
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || '/api';
 axios.defaults.withCredentials = true;
 
 export const AuthProvider = ({ children }) => {
