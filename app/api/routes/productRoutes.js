@@ -5,21 +5,10 @@ const {
   getProducts, getProductById, createProduct, updateProduct, deleteProduct, 
   addReview, getCategories, getBrands 
 } = require('../controllers/ProductController');
-const multer = require('multer');
-const path = require('path');
-const upload = multer({ dest: process.env.NODE_ENV === 'production' ? '/tmp/products/' : 'uploads/products/' });
+const upload = require('../middlewares/cloudinaryUpload');
 
 
 const router = express.Router();
-
-// ========== Multer Upload Config ==========
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, process.env.NODE_ENV === 'production' ? '/tmp/products/' : 'uploads/products/'),
-  filename: (req, file, cb) => {
-    const unique = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    cb(null, file.fieldname + '-' + unique + path.extname(file.originalname));
-  }
-});
 
 
 // ========== Routes ==========

@@ -1,8 +1,7 @@
 const express = require('express');
 const { body } = require('express-validator');
 const { protect } = require('../middlewares/auth');
-const multer = require('multer');
-const upload = multer({ dest: process.env.NODE_ENV === 'production' ? '/tmp/categories/' : 'uploads/categories/' });
+const upload = require('../middlewares/cloudinaryUpload');
 const {
   createCategory,
   getCategories,

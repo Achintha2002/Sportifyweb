@@ -155,7 +155,7 @@ exports.createProduct = async (req, res) => {
     // Handle uploaded images
     if (req.files && req.files.length > 0) {
       productData.images = req.files.map((file, index) => ({
-        url: `/uploads/products/${file.filename}`,
+        url: file.path,
         alt: productData.name,
         isPrimary: index === 0,
       }));
@@ -216,7 +216,7 @@ exports.updateProduct = async (req, res) => {
     // Handle new uploaded files
     if (req.files && req.files.length > 0) {
       const newImages = req.files.map((file, index) => ({
-        url: `/uploads/products/${file.filename}`,
+        url: file.path,
         alt: updateData.name || product.name,
         isPrimary: index === 0
       }));
