@@ -56,7 +56,13 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // Static files
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
+  setHeaders: (res, filePath) => {
+    if (!path.extname(filePath)) {
+      res.setHeader('Content-Type', 'image/jpeg');
+    }
+  }
+}));
 
 // Routes
 app.use('/api', routes);
