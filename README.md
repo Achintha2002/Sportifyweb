@@ -1,90 +1,100 @@
-# Sportify E-Commerce Platform
+# Sportify - Your Ultimate Sports Equipment Store 🏏⚽🎾
 
-Sportify is a full-stack, modern e-commerce platform designed specifically for sporting goods and athletic wear. It features a robust frontend built with React and Vite, paired with a powerful Node.js/Express backend running on a MongoDB database.
+![Sportify Banner](https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)
 
-## 🚀 Features
+Welcome to **Sportify**, a fully-featured, modern E-commerce platform built specifically for sports equipment. Whether you are a professional athlete or a weekend warrior, Sportify provides a seamless shopping experience for all your sporting needs.
 
-### For Customers
-* **Product Catalog & Search**: Browse through categories and brands with advanced filtering.
-* **Shopping Cart & Checkout**: Add items to the cart and securely check out with Stripe integration.
-* **Order Tracking**: View past orders and track their shipping status.
-* **User Profiles**: Manage personal details and addresses.
+## 🌟 Key Features
 
-### For Staff / Admin
-* **Dashboard Analytics**: Comprehensive overview of sales, inventory, and users.
-* **Inventory Management**: Track and manage stock, low stock alerts.
-* **Order Fulfillment**: Update order statuses and manage shipments.
-* **User Management**: Manage customers, staff, and suppliers.
-* **Support System**: Handle customer queries via a ticketing system.
-
-### For Suppliers
-* **Supplier Dashboard**: Dedicated space for suppliers to manage their provided products.
-* **Inventory Tracking**: Summaries and reports for supplied stock.
-* **Orders & Payments**: View supplier orders and payment history.
+*   **Role-Based Access Control:** Separate dashboards and functionalities for Customers, Admin, and Suppliers.
+*   **Dynamic Product Catalog:** Browse products by categories, brands, and featured items.
+*   **Cloudinary Integration:** Robust, persistent cloud-based image storage for all product and profile images.
+*   **Secure Authentication:** JWT-based authentication with encrypted passwords (bcryptjs).
+*   **Shopping Cart & Wishlist:** Intuitive cart management and the ability to save favorite items.
+*   **Stripe Payment Integration:** Secure checkout process utilizing Stripe for payments.
+*   **Admin Dashboard:** Comprehensive management of Users, Products, Categories, Brands, and Orders.
+*   **Supplier Dashboard:** Inventory management and order fulfillment tracking.
+*   **Responsive UI:** A beautiful, modern interface built with React, Tailwind CSS, and Framer Motion animations.
+*   **PDF Reports:** Generate and download various reports directly from the dashboards.
 
 ## 🛠️ Technology Stack
 
-### Frontend (Web)
-* React 18
-* Vite
-* Tailwind CSS
-* React Router DOM v7
-* React Query (Data Fetching)
-* Axios
-* Chart.js & Recharts (Analytics)
-* Framer Motion (Animations)
-* React Hook Form
+### Frontend (Client-side)
+*   **Framework:** React 18 & Vite
+*   **Styling:** Tailwind CSS
+*   **Animations:** Framer Motion
+*   **Routing:** React Router DOM v7
+*   **State Management/Data Fetching:** React Query (TanStack Query)
+*   **Icons:** Lucide React & React Icons
+*   **Maps:** Leaflet & React Google Maps
 
-### Backend (API)
-* Node.js
-* Express
-* MongoDB & Mongoose
-* JWT (Authentication)
-* Stripe (Payments)
-* Nodemailer (Emails)
-* Multer (File Uploads)
-* HTML-PDF-Node & html2canvas (PDF Reports)
+### Backend (Server-side)
+*   **Runtime:** Node.js
+*   **Framework:** Express.js
+*   **Database:** MongoDB (Mongoose ORM)
+*   **Authentication:** JSON Web Tokens (JWT)
+*   **File Uploads:** Multer & Multer-Storage-Cloudinary
+*   **Cloud Storage:** Cloudinary
+*   **Payments:** Stripe
 
-## 📦 Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
-* Node.js (v18+)
-* MongoDB 
+Make sure you have Node.js and MongoDB installed on your system.
 
-### Installation
+### 1. Clone the repository
+```bash
+git clone https://github.com/Achintha2002/Sportifyweb.git
+cd Sportifyweb
+```
 
-1. **Clone the repository** (if applicable) or navigate to the project directory.
-
-2. **Install Backend Dependencies**
-   ```bash
-   cd app/api
-   npm install
-   ```
-
-3. **Install Frontend Dependencies**
-   ```bash
-   cd app/web
-   npm install
-   ```
-
-4. **Environment Variables**
-   Create a `.env` file in both `app/api` and `app/web` with the necessary configuration details (e.g., MongoDB URI, Stripe keys, ports).
-
-### Running the Application
-
-**Run the Backend API**
+### 2. Backend Setup
+Navigate to the API folder and install dependencies:
 ```bash
 cd app/api
+npm install
+```
+
+Create a `.env` file in the `app/api` directory and add the following variables:
+```env
+PORT=5555
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_secret_key
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+```
+
+Start the backend server:
+```bash
 npm run dev
 ```
 
-**Run the Frontend App**
+### 3. Frontend Setup
+Open a new terminal, navigate to the web folder, and install dependencies:
 ```bash
 cd app/web
+npm install
+```
+
+Create a `.env` file in the `app/web` directory:
+```env
+VITE_SERVER_URL=http://localhost:5555
+VITE_API_URL=http://localhost:5555/api
+```
+
+Start the frontend development server:
+```bash
 npm run dev
 ```
 
-The application will be available at the ports specified in your `.env` files (e.g., `http://localhost:3002` for frontend and `http://localhost:5555` for backend).
+## 🌐 Deployment Information
+*   **Backend:** Configured for seamless deployment on [Vercel](https://vercel.com/) via `vercel.json`.
+*   **Frontend:** Optimized Vite build for deployment on Vercel, Netlify, or GitHub Pages.
 
-## 📄 License
-This project is licensed under the ISC License.
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+
+---
+*Built with ❤️ by Achintha Edirisinghe.*
