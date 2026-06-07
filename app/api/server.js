@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const rateLimit = require('express-rate-limit');
 const connectDB = require('./config/db');
 const routes = require('./routes');
+const path = require('path');
 if (process.env.NODE_ENV !== 'production') {
   require('./cron/lowStockChecker'); 
 } 
@@ -55,7 +56,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // Static files
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api', routes);
