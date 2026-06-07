@@ -61,7 +61,7 @@ const ProductCard = ({ product }) => {
         {/* Product Image */}
         <div className="relative overflow-hidden rounded-t-xl">
           <img
-            src={product.images?.[0]?.url?.startsWith('http') ? product.images[0].url : `${import.meta.env.VITE_SERVER_URL || 'https://sportify-backend-theta.vercel.app'}${product.images?.[0]?.url}`}
+            src={product.images?.[0]?.url?.startsWith('http') ? product.images[0].url : `${import.meta.env.VITE_SERVER_URL || 'https://sportify-backend-theta.vercel.app'}/${(product.images?.[0]?.url || '').replace(/\\\\/g, "/").replace(new RegExp('^/'), '')}`}
             alt={product.name}
             className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
           />

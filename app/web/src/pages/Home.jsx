@@ -157,7 +157,7 @@ const Home = () => {
                                         className="md:col-span-2 md:row-span-2 rounded-[2rem] overflow-hidden group relative shadow-xl"
                                     >
                                         <img 
-                                            src={rawCategoriesData[0].image.url.startsWith('http') ? rawCategoriesData[0].image.url : `${import.meta.env.VITE_SERVER_URL || 'https://sportify-backend-theta.vercel.app'}/${rawCategoriesData[0].image.url.replace(/\\/g, "/")}`}
+                                            src={rawCategoriesData[0].image?.url?.startsWith('http') ? rawCategoriesData[0].image.url : `${import.meta.env.VITE_SERVER_URL || 'https://sportify-backend-theta.vercel.app'}/${(rawCategoriesData[0].image?.url || '').replace(/\\\\/g, "/")}`}
                                             alt={rawCategoriesData[0].name} 
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
@@ -197,7 +197,7 @@ const Home = () => {
                                             className={`rounded-[1.5rem] overflow-hidden group relative shadow-md ${colSpanClass}`}
                                         >
                                             <img 
-                                                src={cat.image.url.startsWith('http') ? cat.image.url : `${import.meta.env.VITE_SERVER_URL || 'https://sportify-backend-theta.vercel.app'}/${cat.image.url.replace(/\\/g, "/")}`}
+                                                src={cat.image?.url?.startsWith('http') ? cat.image.url : `${import.meta.env.VITE_SERVER_URL || 'https://sportify-backend-theta.vercel.app'}/${(cat.image?.url || '').replace(/\\\\/g, "/")}`}
                                                 alt={cat.name} 
                                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                             />
