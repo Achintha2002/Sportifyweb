@@ -36,11 +36,14 @@ const corsOptions = {
   origin: function (origin, callback) {
     const allowedOrigins = [
       process.env.FRONTEND_URL,
+      'http://localhost:3000',
       'http://localhost:3001',
+      'http://localhost:3002',
+      'http://localhost:3003',
       'http://localhost:5173'
     ];
     // Allow any vercel preview URL or if no origin (like mobile apps/postman)
-    if (!origin || origin.includes('vercel.app') || allowedOrigins.includes(origin)) {
+    if (!origin || origin.includes('vercel.app') || origin.includes('localhost') || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
