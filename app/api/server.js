@@ -4,7 +4,9 @@ const dotenv = require('dotenv');
 const rateLimit = require('express-rate-limit');
 const connectDB = require('./config/db');
 const routes = require('./routes');
-require('./cron/lowStockChecker'); 
+if (process.env.NODE_ENV !== 'production') {
+  require('./cron/lowStockChecker'); 
+} 
 
 // Load env variables
 require('dotenv').config();
@@ -60,7 +62,9 @@ app.use('*', (req, res) => {
 });
 
 // Server listen
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Sportify API running on port ${PORT}`));
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`🚀 Sportify API running on port ${PORT}`));
+}
 
 module.exports = app;
