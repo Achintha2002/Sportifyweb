@@ -13,9 +13,5 @@ export default defineConfig({
         secure: false,
       }
     }
-  },
-  define: {
-    'process.env': {},
-    'import.meta.env.VITE_SERVER_URL': JSON.stringify('http://localhost:5555')
   }
 })
