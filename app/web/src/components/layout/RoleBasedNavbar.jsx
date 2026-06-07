@@ -219,7 +219,7 @@ const RoleBasedNavbar = () => {
               <img
                 src="/SportifyLogo.png" 
                 alt="Sportify Logo"
-                className="w-auto h-14 md:h-16" 
+                className="w-auto h-10 md:h-12" 
               />
             </Link>
           </div>
