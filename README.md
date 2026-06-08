@@ -97,4 +97,4 @@ npm run dev
 Contributions, issues, and feature requests are welcome!
 
 ---
-*Built with ❤️ by Achintha Edirisinghe.*
+
